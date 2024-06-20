@@ -1,0 +1,4 @@
+Here, I will use semaphores to manage shared resources(remaining tickets and also the two booths). For updating the count of remaining tickets, mutexes can be used to ensure mutual exclusion when entering critical sections of code. As persons are considered as thread which means there will have 12 threads where each thread will attempt to purchase a ticket by getting a semaphore from any of the booths. If a semaphore is available, the thread acquires it and then will purchase a ticket. Before updating the count of remaining tickets, the thread recieves a mutex to ensure mutual exclusion. After then ot decrements the count and releases the mutex. The thread releases the booth semaphore after completion of the ticket purchase.
+Once the remaining tickets count reaches zero, no more semaphores will be available, and the remaining threads will not be able to acquire them to purchase tickets.
+
+
